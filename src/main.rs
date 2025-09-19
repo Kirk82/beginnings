@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use rng::*;
 
 fn main() {
@@ -20,9 +22,24 @@ fn main() {
         Animal::Dolphin => 0,
     };
 
-    println!("A {:?} has {} legs", choosen_animal, animal_legs);
+    let mut habitat_map = HashMap::new();
 
-    #[derive(Debug)]
+    habitat_map.insert(Animal::Cat, vec!["a house", "the wild"]);
+
+    habitat_map.insert(Animal::Human, vec!["a house"]);
+
+    habitat_map.insert(Animal::Dolphin, vec!["the Ocean", "Sea Wrold"]);
+
+    let potential_habitat = habitat_map.get(&choosen_animal).unwrap();
+
+    let habitat = potential_habitat.sample(rng_generator).unwrap();
+
+    println!(
+        "This {:?} has {} legs and lives in {}",
+        choosen_animal, animal_legs, habitat
+    );
+
+    #[derive(Debug, PartialEq, Eq, Hash)]
     enum Animal {
         Cat,
         Human,
