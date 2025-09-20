@@ -26,13 +26,11 @@ fn main() {
         Animal::Dolphin => 0,
     };
 
-    //This hashmap assigns different habitats to different animals
+    //This hashmap assigns different habitats to respective animals
     let mut habitat_map = HashMap::new();
 
     habitat_map.insert(Animal::Cat, vec!["a house", "the wild"]);
-
     habitat_map.insert(Animal::Human, vec!["a house"]);
-
     habitat_map.insert(Animal::Dolphin, vec!["the Ocean", "Sea Wrold"]);
 
     //connects the animal to the chosen animal variable
@@ -41,10 +39,36 @@ fn main() {
     //randomly chooses a habitat
     let habitat = potential_habitat.sample(rng_generator).unwrap();
 
+    let mut animal_name_map = HashMap::new();
+
+    animal_name_map.insert(Animal::Cat, vec!["Smudge", "Panther", "Whiskers"]);
+    animal_name_map.insert(Animal::Dolphin, vec!["Flipper", "Speedy", "Mist"]);
+    animal_name_map.insert(Animal::Human, vec!["James", "Andrew", "Peter"]);
+
+    let potential_animal_names = animal_name_map.get(&choosen_animal).unwrap();
+
+    let animal_name = potential_animal_names.sample(rng_generator).unwrap();
+
+    let mut favourite_food_map: HashMap<&'static str, Vec<&'static str>> = HashMap::new();
+
+    favourite_food_map.insert("Smudge", vec!["chicken", "treats"]);
+    favourite_food_map.insert("Panther", vec!["Humans", "Dear"]);
+    favourite_food_map.insert("Whiskers", vec!["cat food", "fish"]);
+    favourite_food_map.insert("Flipper", vec!["Fish", "Planktin"]);
+    favourite_food_map.insert("Speedy", vec!["Carp", "Sea trash"]);
+    favourite_food_map.insert("Mist", vec!["Blood", "Clouds"]);
+    favourite_food_map.insert("James", vec!["Burgers", "Potato cakes"]);
+    favourite_food_map.insert("Andrew", vec!["Salad", "Tofu"]);
+    favourite_food_map.insert("Peter", vec!["Kebabs", "Pizza"]);
+
+    let potential_favourite_food = favourite_food_map.get(animal_name).unwrap();
+
+    let favourite_food = potential_favourite_food.sample(rng_generator).unwrap();
+
     //Prints a line in terimal using randomly generated info
     println!(
-        "This {:?} has {} legs and lives in {}",
-        choosen_animal, animal_legs, habitat
+        "This {:?} has {} legs, lives in {} and is called {}. Their favourite food is {}",
+        choosen_animal, animal_legs, habitat, animal_name, favourite_food
     );
 
     #[derive(Debug, PartialEq, Eq, Hash)]
