@@ -1,3 +1,9 @@
+mod character;
+mod data;
+
+use character::*;
+use data::*;
+
 use std::collections::HashMap;
 
 use rng::*;
@@ -16,11 +22,11 @@ fn main() {
         _ => panic!(),
     };
 
-    //initialises the animal_legs varibale
-    let animal_legs;
+    //initialises the number_of_animal_legs varibale
+    let number_of_animal_legs;
 
     //Says how many legs an animal has
-    animal_legs = match choosen_animal {
+    number_of_animal_legs = match choosen_animal {
         Animal::Cat => 4,
         Animal::Human => 2,
         Animal::Dolphin => 0,
@@ -31,7 +37,7 @@ fn main() {
 
     habitat_map.insert(Animal::Cat, vec!["a house", "the wild"]);
     habitat_map.insert(Animal::Human, vec!["a house"]);
-    habitat_map.insert(Animal::Dolphin, vec!["the Ocean", "Sea Wrold"]);
+    habitat_map.insert(Animal::Dolphin, vec!["the Ocean", "Sea World"]);
 
     //connects the animal to the chosen animal variable
     let potential_habitat = habitat_map.get(&choosen_animal).unwrap();
@@ -68,13 +74,14 @@ fn main() {
     //Prints a line in terimal using randomly generated info
     println!(
         "This {:?} has {} legs, lives in {} and is called {}. Their favourite food is {}",
-        choosen_animal, animal_legs, habitat, animal_name, favourite_food
+        choosen_animal, number_of_animal_legs, habitat, animal_name, favourite_food
     );
+}
 
-    #[derive(Debug, PartialEq, Eq, Hash)]
-    enum Animal {
-        Cat,
-        Human,
-        Dolphin,
-    }
+#[derive(Debug, PartialEq, Eq, Hash, Default)]
+enum Animal {
+    #[default]
+    Cat,
+    Human,
+    Dolphin,
 }
