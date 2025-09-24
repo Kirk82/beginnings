@@ -11,6 +11,11 @@ use rng::*;
 fn main() {
     let rng_generator = Rng::new();
 
+    let character = Character::new();
+    let data = Data::new();
+
+let character.number_of_legs = data.number_of_legs_map.get(animal).unwrap();
+
     //picks a random number
     let animal_selector = rng_generator.gen_range(1..4);
 
@@ -22,11 +27,11 @@ fn main() {
         _ => panic!(),
     };
 
-    //initialises the number_of_animal_legs varibale
-    let number_of_animal_legs;
+    //initialises the number_of_legs varibale
+    let number_of_legs;
 
     //Says how many legs an animal has
-    number_of_animal_legs = match choosen_animal {
+    number_of_legs = match choosen_animal {
         Animal::Cat => 4,
         Animal::Human => 2,
         Animal::Dolphin => 0,
@@ -74,7 +79,7 @@ fn main() {
     //Prints a line in terimal using randomly generated info
     println!(
         "This {:?} has {} legs, lives in {} and is called {}. Their favourite food is {}",
-        choosen_animal, number_of_animal_legs, habitat, animal_name, favourite_food
+        choosen_animal, number_of_legs, habitat, animal_name, favourite_food
     );
 }
 

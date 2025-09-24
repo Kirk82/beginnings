@@ -1,11 +1,10 @@
 use crate::*;
 
 pub struct Data {
-    pub animal: Animal,
-    pub number_of_animal_legs: i32,
     pub animal_name_map: HashMap<Animal, Vec<&'static str>>,
     pub habitat_map: HashMap<Animal, Vec<&'static str>>,
     pub favourite_food_map: HashMap<&'static str, Vec<&'static str>>,
+    pub number_of_legs_map: HashMap<Animal, u32>,
 }
 
 impl Data {
@@ -33,5 +32,18 @@ impl Data {
         favourite_food_map.insert("James", vec!["Burgers", "Potato cakes"]);
         favourite_food_map.insert("Andrew", vec!["Salad", "Tofu"]);
         favourite_food_map.insert("Peter", vec!["Kebabs", "Pizza"]);
+
+        let mut number_of_legs: HashMap<Animal, u32> = HashMap::new();
+
+        number_of_legs.insert(Animal::Cat, 4);
+        number_of_legs.insert(Animal::Dolphin, 0);
+        number_of_legs.insert(Animal::Human, 2);
+
+        return Self {
+            animal_name_map: animal_name_map,
+            habitat_map: habitat_map,
+            favourite_food_map: favourite_food_map,
+            number_of_legs_map: number_of_legs,
+        };
     }
 }
