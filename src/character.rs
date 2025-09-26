@@ -4,10 +4,10 @@ pub struct Character {
     pub number_of_legs: u32,
     pub animal_name: String,
     pub habitat: String,
-    pub favourite_food: String,
+    //pub favourite_food: String,
 }
 
-#[derive(Debug, PartialEq, Eq, Hash, Default)]
+#[derive(Debug, PartialEq, Eq, Hash, Default, Clone)]
 pub enum Animal {
     #[default]
     Cat,
