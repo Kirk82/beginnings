@@ -25,9 +25,8 @@ fn main() {
         _ => panic!(),
     };
 
+    //assigning choosen animal to the character file
     character.animal = _animal.clone();
-
-    character.number_of_legs = *data.number_of_legs_map.get(&_animal).unwrap();
 
     //initialises the number_of_legs varibale
     let _number_of_legs;
@@ -38,6 +37,9 @@ fn main() {
         Animal::Human => 2,
         Animal::Dolphin => 0,
     };
+
+    //putting the correct number of legs into the character file based on which animal is randomly choosen
+    character.number_of_legs = *data.number_of_legs_map.get(&_animal).unwrap();
 
     character.number_of_legs = _number_of_legs;
 
@@ -54,20 +56,20 @@ fn main() {
         .unwrap()
         .to_string();
 
-    //let potential_favourite_food = data.favourite_food_map.get(&animal).unwrap();
-    //
-    //character.favourite_food = potential_favourite_food
-    //    .sample(rng_generator)
-    //    .unwrap()
-    //    .to_string();
+    let potential_favourite_food = data.favourite_food_map.get(&_animal).unwrap();
+
+    character.favourite_food = potential_favourite_food
+        .sample(rng_generator)
+        .unwrap()
+        .to_string();
 
     //Prints a line in terimal using randomly generated info from the data file and puts it into character file
     println!(
-        "This {:?} has {} legs, lives in {} and is called {}. Their favourite food is ",
+        "This {:?} has {} legs, lives in {} and is called {}. Their favourite food is {}",
         character.animal,
         character.number_of_legs,
         character.habitat,
         character.animal_name,
-        //character.favourite_food
+        character.favourite_food,
     );
 }
