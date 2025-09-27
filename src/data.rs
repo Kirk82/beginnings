@@ -13,7 +13,11 @@ impl Data {
 
         habitat_map.insert(
             Animal::Cat,
-            vec!["a house.".to_string(), "the wild".to_string()],
+            vec![
+                "a house.".to_string(),
+                "a animal shelter".to_string(),
+                "the wild".to_string(),
+            ],
         );
         habitat_map.insert(Animal::Human, vec!["a house".to_string()]);
         habitat_map.insert(
