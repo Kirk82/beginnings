@@ -1,3 +1,5 @@
+use rng::*;
+
 //fields to put all data collected from the data file
 #[derive(Default)]
 pub struct Character {
@@ -9,7 +11,7 @@ pub struct Character {
 }
 
 //a list of possible animals
-#[derive(Debug, PartialEq, Eq, Hash, Default, Clone)]
+#[derive(Debug, PartialEq, Eq, Hash, Default, Clone, RandomVariant)]
 pub enum Animal {
     #[default]
     Cat,
