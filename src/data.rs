@@ -14,8 +14,8 @@ impl Data {
         habitat_map.insert(
             Animal::Cat,
             vec![
-                "a house.".to_string(),
-                "a animal shelter".to_string(),
+                "a house".to_string(),
+                "an animal shelter".to_string(),
                 "the wild".to_string(),
             ],
         );

@@ -1,4 +1,4 @@
-use rng::*;
+use crate::*;
 
 //fields to put all data collected from the data file
 #[derive(Default)]
